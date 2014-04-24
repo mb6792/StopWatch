@@ -25,14 +25,12 @@ public class DataWriter {
 		}
 	}
 	
-	public static void storeData(String s){
-		
+	public static void storeData(final String s){	
 		sharedFileWrite(timeCounter, s);
 		localFileWrite(timeCounter, s);
 		stdoutWrite(timeCounter, s);
 		dbcon.insertTime(timeCounter, s);
-		
-		timeCounter++;
+		timeCounter++;		
 	}
 	
 	public static void sharedFileWrite(int counter, String s){
@@ -54,7 +52,7 @@ public class DataWriter {
 	}
 	
 	public static void stdoutWrite(int counter ,String s){
-			System.out.println(counter + " | " + s + "\n");
+			System.out.println("\n" + counter + " | " + s);
 	}
 	
 	public static void close(){
